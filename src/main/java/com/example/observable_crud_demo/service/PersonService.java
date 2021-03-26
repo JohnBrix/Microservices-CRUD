@@ -8,10 +8,14 @@ import java.util.Optional;
 
 public interface PersonService {
 
-    PersonModel savePerson(PersonDto personDto);
+    PersonModel save(PersonDto personDto);
+
     PersonModel updatePerson(PersonDto personDto);
-    Optional<PersonModel> findByIdIfExist(PersonDto personDto);
-    List<PersonModel> getPersons();
-    Long deletePerson(Long id);
+
+    Optional<PersonModel> findById(PersonDto personDto);
+
+    List<PersonModel> findAll();
+
+    Long deleteById(Long id);
 
 }

@@ -8,14 +8,17 @@ public class PersonDto {
 
     private Long id;
     @NotBlank(message = "Firstname cannot be blank!")
+    @NotNull
     private String firstName;
     @NotBlank(message = "Lastname cannot be blank!")
+    @NotNull
     private String lastName;
     @NotNull(message = "BirthDate cannot be blank!")
     private Date birthDate;
     @NotNull(message = "Age cannot be null")
     private Integer age;
     @NotBlank(message = "Address cannot be blank!")
+    @NotNull
     private String address;
     private Date dateCreated;
 

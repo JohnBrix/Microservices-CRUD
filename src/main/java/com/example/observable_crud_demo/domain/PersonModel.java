@@ -11,19 +11,32 @@ public class PersonModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @NotNull
     private String firstName;
-
+    @NotNull
     private String lastName;
 
     @Temporal(TemporalType.DATE)
+    @NotNull
     private Date birthDate;
-
+    @NotNull
     private Integer age;
-
+    @NotNull
     private String address;
     @Temporal(TemporalType.DATE)
+    @NotNull
     private Date dateCreated;
+
+    public PersonModel(Long id, String firstName, String lastName, Integer age, String address) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.address = address;
+    }
+
+    public PersonModel() {
+    }
 
     public Long getId() {
         return id;
