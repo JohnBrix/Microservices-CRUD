@@ -23,7 +23,7 @@ public class PersonMapper {
     }
     public PersonModel fromCreatePersonDtoToPersonEntityUpdate(PersonDto createPersonDto) {
         var personModel = new PersonModel();
-/*        personModel.setId(createPersonDto.getId());*/
+        personModel.setId(createPersonDto.getId());
         personModel.setFirstName(createPersonDto.getFirstName());
         personModel.setLastName(createPersonDto.getLastName());
         personModel.setBirthDate(createPersonDto.getBirthDate());

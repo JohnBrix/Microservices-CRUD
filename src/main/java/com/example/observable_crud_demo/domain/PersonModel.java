@@ -10,7 +10,7 @@ public class PersonModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
     @NotNull
     private String firstName;
     @NotNull
@@ -27,7 +27,7 @@ public class PersonModel {
     @NotNull
     private Date dateCreated;
 
-    public PersonModel(Long id, String firstName, String lastName, Integer age, String address) {
+    public PersonModel(Integer id, String firstName, String lastName, Integer age, String address) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -38,11 +38,11 @@ public class PersonModel {
     public PersonModel() {
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

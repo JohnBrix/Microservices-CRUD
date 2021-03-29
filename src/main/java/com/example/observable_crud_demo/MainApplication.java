@@ -24,10 +24,7 @@ public class MainApplication {
         SpringApplication.run(MainApplication.class, args);
     }
 
-    /*@Bean
-    public RestTemplate getRestTemplate(){
-        return new RestTemplate();
-    }*/
+
 
     @Bean
     public Docket api() {

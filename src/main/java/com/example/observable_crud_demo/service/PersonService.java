@@ -3,6 +3,7 @@ package com.example.observable_crud_demo.service;
 import com.example.observable_crud_demo.domain.PersonModel;
 import com.example.observable_crud_demo.dto.PersonDto;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,10 +13,10 @@ public interface PersonService {
 
     PersonModel updatePerson(PersonDto personDto);
 
-    Optional<PersonModel> findById(PersonDto personDto);
+    Optional<PersonModel> findById(Integer id);
 
     List<PersonModel> findAll();
 
-    Long deleteById(Long id);
+    Integer deleteById(Integer id);
 
 }

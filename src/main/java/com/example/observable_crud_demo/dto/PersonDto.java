@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class PersonDto {
 
-    private Long id;
+    private Integer id;
     @NotBlank(message = "Firstname cannot be blank!")
     @NotNull
     private String firstName;
@@ -22,11 +22,11 @@ public class PersonDto {
     private String address;
     private Date dateCreated;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

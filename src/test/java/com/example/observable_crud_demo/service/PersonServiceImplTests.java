@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -30,6 +31,12 @@ public class PersonServiceImplTests {
     public void testGetPersons() {
         List<PersonModel> products = personRepository.findAll();
         assertThat(products).size().isGreaterThan(0);
+    }
+    @Test
+    public void testFindById(){
+        Integer id = 1;
+        Optional<PersonModel> products = personRepository.findById(id);
+        assertThat(status().isOk());
     }
 
     @Test
@@ -62,7 +69,7 @@ public class PersonServiceImplTests {
         cal.set(1999, Calendar.FEBRUARY, 17);
 
         PersonDto dto = new PersonDto();
-        dto.setId((long) 5);
+        dto.setId(5);
         dto.setFirstName("UnitTest");
         dto.setLastName("UnitTest");
         dto.setAge(1);
@@ -79,8 +86,8 @@ public class PersonServiceImplTests {
 
     @Test
     public void testDeletePerson() {
-        personRepository.deleteById((long) 1);
-        Optional<PersonModel> find = personRepository.findById((long) 1);
+        personRepository.deleteById( 1);
+        Optional<PersonModel> find = personRepository.findById( 1);
         assertThat(find).isEmpty();
     }
 }

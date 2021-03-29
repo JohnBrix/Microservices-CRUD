@@ -26,6 +26,15 @@ public class PersonController {
         return new ResponseEntity(personService.findAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity findById(@PathVariable Integer id) {
+        var idIfExist = personService.findById(id);
+        if (idIfExist.isEmpty()) {
+            return new ResponseEntity(personService.findById(id), HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity(personService.findById(id), HttpStatus.OK);
+    }
+
     @PostMapping
     public ResponseEntity createPerson(@RequestBody PersonDto personDto) {
         return new ResponseEntity(personService.save(personDto), HttpStatus.OK);
@@ -36,11 +45,16 @@ public class PersonController {
         return new ResponseEntity(personService.updatePerson(personDto), HttpStatus.OK);
     }
 
-    /*http://localhost:8081/api/person?id=1*/
-    @DeleteMapping
-    public ResponseEntity<Integer> deletePerson(@Valid @RequestParam("id") Long id) {
+    /*http://localhost:8081/api/person/1*/
+    @DeleteMapping("/{id}")
+    public ResponseEntity deletePerson(@PathVariable Integer id) {
+
+        var idIfExist = personService.findById(id);
+
+        if (idIfExist.isEmpty()){
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
 
         return new ResponseEntity(personService.deleteById(id), HttpStatus.OK);
-
     }
 }
