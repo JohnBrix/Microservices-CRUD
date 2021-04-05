@@ -1,0 +1,23 @@
+version: "3.7"
+services:
+  api_service:
+    build: .
+    restart: always
+    ports:
+      - 8081:8081
+    depends_on:
+      - mysql_standalone
+    command: sh -c './wait-for mysql_standalone:3306 -- npm start'
+  mysql_standalone:
+    image: "mysql:5.7"
+    restart: always
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_DATABASE: spring_demodb
+      MYSQL_USER: johnbrix
+      MYSQL_PASSWORD: johnbrixxxxxx17
+      MYSQL_ROOT_PASSWORD: johnbrixxxxxx17
+#Keep in mind this is configugration of your docker compose
+#mysql:5.7 if your version
+#mysql_standalone is your name of your running mysql in docker
