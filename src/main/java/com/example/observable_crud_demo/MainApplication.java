@@ -16,7 +16,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 
-@EnableSwagger2
+/*@EnableSwagger2*/
 @SpringBootApplication
 public class MainApplication {
 
@@ -26,7 +26,7 @@ public class MainApplication {
 
 
 
-    @Bean
+    /*@Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo()).select()
                 .apis(RequestHandlerSelectors.any())
@@ -39,6 +39,6 @@ public class MainApplication {
                 .description(
                         "Person System Service API Documentation")
                 .termsOfServiceUrl("").version("1.0.1").contact(new Contact("John Brix Pomoy", "https://spring-boot-portfolio-johnbrix.herokuapp.com/", "pomoyjohnbrix@gmail.com")).build();
-    }
+    }*/
 
 }
